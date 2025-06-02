@@ -9,7 +9,7 @@
 
 **A high-performance, feature-rich web crawler built in Go with real-time CLI visualization**
 
-[Features](#features) • [Installation](#installation) • [Usage](#usage) • [Configuration](#configuration) • [Contributing](#contributing)
+[Features](#features) • [Installation](#installation) • [Usage](#usage) • [Configuration](#configuration) • [Contributing](#contributing) • [License](#license)
 
 ![Demo GIF Placeholder](./samples/web-crawler-demo.gif)
 
@@ -17,9 +17,9 @@
 
 ---
 
-## ✨ Features
+## Features
 
-### 🚀 **Core Capabilities**
+### 🚀 Core Capabilities
 
 - **High-Performance Crawling** - Concurrent processing with goroutines
 - **Smart URL Management** - Intelligent queuing and duplicate detection
@@ -27,7 +27,7 @@
 - **Real-time Statistics** - Live performance metrics and analytics
 - **Graceful Shutdown** - Clean exit with Ctrl+C handling
 
-### 🎨 **Beautiful CLI Interface**
+### 🎨 Beautiful CLI Interface
 
 - **Live Progress Bars** - Visual progress tracking
 - **Real-time Activity Log** - See what's being crawled instantly
@@ -35,14 +35,14 @@
 - **Performance Metrics** - Pages per second, success rates, and more
 - **Current Status Display** - Know exactly what's happening
 
-### 🛡️ **Robust & Reliable**
+### 🛡️ Robust & Reliable
 
 - **Error Handling** - Comprehensive error tracking and recovery
 - **HTTP Timeouts** - Prevents hanging on slow requests
 - **Memory Efficient** - Optimized data structures and algorithms
 - **Thread Safe** - Concurrent-safe operations throughout
 
-### 📊 **Advanced Analytics**
+### 📊 Advanced Analytics
 
 - **Success/Failure Tracking** - Detailed crawl statistics
 - **Performance Monitoring** - Real-time rate calculations
@@ -51,7 +51,7 @@
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -84,7 +84,7 @@ go install github.com/Yashh56/web-crawler@latest
 
 ---
 
-## 🎯 Usage
+## Usage
 
 ### Basic Usage
 
@@ -121,7 +121,7 @@ MONGO_URI=mongodb://localhost:27017
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Live Crawling Interface
 
@@ -165,9 +165,12 @@ MONGO_URI=mongodb://localhost:27017
    ⏱️  Total runtime: 5m 18s
 ```
 
+### MongoDB Data Store
+![Store Data](./samples/mongo_response.jpeg)
+
 ---
 
-## Configuration ⚙️
+## Configuration
 
 ### Database Configuration
 
@@ -197,7 +200,7 @@ const (
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Core Components
 
@@ -233,7 +236,7 @@ const (
 
 ---
 
-## 🔧 Development
+## Development
 
 ### Project Structure
 
@@ -241,11 +244,11 @@ const (
 web-crawler/
 ├── main.go                 # Main application entry
 ├── utils/
-│   ├── database.go        # Database
+│   └── database.go        # Database utilities
 ├── go.mod                 # Go module dependencies
 ├── go.sum                 # Dependency checksums
 ├── .env.example           # Environment template
-├── README.md              # This file
+├── README.md              # Project documentation
 └── LICENSE                # MIT License
 ```
 
@@ -269,8 +272,11 @@ go build -ldflags="-s -w" -o crawler main.go
 # Format code
 go fmt ./...
 
-# Lint code
+# Lint code (requires golangci-lint)
 golangci-lint run
+
+# Run tests
+go test ./...
 
 # Generate documentation
 go doc -all
@@ -278,7 +284,7 @@ go doc -all
 
 ---
 
-## 📈 Performance
+## Performance
 
 ### Benchmarks
 
@@ -298,7 +304,7 @@ go doc -all
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how you can help:
 
@@ -326,7 +332,7 @@ We welcome contributions! Here's how you can help:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
@@ -348,7 +354,7 @@ copies or substantial portions of the Software.
 
 ---
 
-## 🌟 Acknowledgments
+## Acknowledgments
 
 - **Go Community** - For the amazing language and ecosystem
 - **MongoDB** - For robust data storage capabilities
