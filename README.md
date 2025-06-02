@@ -9,9 +9,9 @@
 
 **A high-performance, feature-rich web crawler built in Go with real-time CLI visualization**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Configuration](#-configuration) • [Contributing](#-contributing)
+[Features](#features) • [Installation](#installation) • [Usage](#usage) • [Configuration](#configuration) • [Contributing](#contributing)
 
-![Demo GIF Placeholder](./web-crawler-demo.gif)
+![Demo GIF Placeholder](./samples/web-crawler-demo.gif)
 
 </div>
 
@@ -20,6 +20,7 @@
 ## ✨ Features
 
 ### 🚀 **Core Capabilities**
+
 - **High-Performance Crawling** - Concurrent processing with goroutines
 - **Smart URL Management** - Intelligent queuing and duplicate detection
 - **Database Integration** - MongoDB support for data persistence
@@ -27,6 +28,7 @@
 - **Graceful Shutdown** - Clean exit with Ctrl+C handling
 
 ### 🎨 **Beautiful CLI Interface**
+
 - **Live Progress Bars** - Visual progress tracking
 - **Real-time Activity Log** - See what's being crawled instantly
 - **Color-coded Output** - Enhanced readability with ANSI colors
@@ -34,12 +36,14 @@
 - **Current Status Display** - Know exactly what's happening
 
 ### 🛡️ **Robust & Reliable**
+
 - **Error Handling** - Comprehensive error tracking and recovery
 - **HTTP Timeouts** - Prevents hanging on slow requests
 - **Memory Efficient** - Optimized data structures and algorithms
 - **Thread Safe** - Concurrent-safe operations throughout
 
 ### 📊 **Advanced Analytics**
+
 - **Success/Failure Tracking** - Detailed crawl statistics
 - **Performance Monitoring** - Real-time rate calculations
 - **Data Size Analysis** - Track bandwidth usage
@@ -50,6 +54,7 @@
 ## 🚀 Installation
 
 ### Prerequisites
+
 - **Go 1.19+** installed on your system
 - **MongoDB** (optional, for data persistence)
 - **Git** for cloning the repository
@@ -119,6 +124,7 @@ MONGO_URI=mongodb://localhost:27017
 ## 📸 Screenshots
 
 ### Live Crawling Interface
+
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                            🕷️  WEB CRAWLER STATUS                            ║
@@ -143,6 +149,7 @@ MONGO_URI=mongodb://localhost:27017
 ```
 
 ### Final Results Summary
+
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                              🎉 CRAWL COMPLETE                               ║
@@ -160,7 +167,7 @@ MONGO_URI=mongodb://localhost:27017
 
 ---
 
-## ⚙️ Configuration
+## Configuration ⚙️
 
 ### Database Configuration
 
@@ -234,7 +241,7 @@ const (
 web-crawler/
 ├── main.go                 # Main application entry
 ├── utils/
-│   ├── database.go        # Database 
+│   ├── database.go        # Database
 ├── go.mod                 # Go module dependencies
 ├── go.sum                 # Dependency checksums
 ├── .env.example           # Environment template
@@ -275,12 +282,12 @@ go doc -all
 
 ### Benchmarks
 
-| Metric | Value |
-|--------|-------|
-| **Average Speed** | 10-15 pages/second |
-| **Memory Usage** | ~50MB for 10K pages |
-| **CPU Usage** | 2-5% on modern systems |
-| **Success Rate** | 95%+ on healthy sites |
+| Metric            | Value                  |
+| ----------------- | ---------------------- |
+| **Average Speed** | 10-15 pages/second     |
+| **Memory Usage**  | ~50MB for 10K pages    |
+| **CPU Usage**     | 2-5% on modern systems |
+| **Success Rate**  | 95%+ on healthy sites  |
 
 ### Optimization Tips
 
@@ -318,45 +325,6 @@ We welcome contributions! Here's how you can help:
 - Update **documentation** as needed
 
 ---
-
-<!-- ## 🐛 Troubleshooting
-
-### Common Issues
-
-**Q: Crawler stops unexpectedly**
-```bash
-# Check for network connectivity
-curl -I https://target-site.com
-
-# Increase timeout in configuration
-export HTTP_TIMEOUT=30s
-```
-
-**Q: MongoDB connection fails**
-```bash
-# Verify MongoDB is running
-mongosh --eval "db.runCommand('ismaster')"
-
-# Check connection string
-export MONGO_URI="mongodb://localhost:27017"
-```
-
-**Q: High memory usage**
-```bash
-# Reduce concurrent requests
-export MAX_WORKERS=5
-
-# Lower queue size limit
-export QUEUE_LIMIT=1000
-``` -->
-<!-- 
-### Getting Help
-
-- 📚 **Documentation** - Check our [Wiki](https://github.com/Yashh56/web-crawler/wiki)
-- 💬 **Discussions** - Join [GitHub Discussions](https://github.com/Yashh56/web-crawler/discussions)
-- 🐛 **Issues** - Report bugs in [Issues](https://github.com/Yashh56/web-crawler/issues)
-
---- -->
 
 ## 📄 License
 

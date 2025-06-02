@@ -1,2 +1,7 @@
 .env
 .exe
+*~
+*.swp
+*.swo
+*.un~
+

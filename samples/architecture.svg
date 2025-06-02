@@ -1,0 +1,207 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Web Crawler Architecture</text>
+  
+  <!-- Main Process Box -->
+  <rect x="50" y="60" width="1100" height="680" fill="none" stroke="#34495e" stroke-width="2" rx="10"/>
+  <text x="70" y="85" font-size="16" font-weight="bold" fill="#34495e">Main Crawler Process</text>
+  
+  <!-- Data Structures Section -->
+  <g id="data-structures">
+    <rect x="80" y="110" width="300" height="180" fill="#e8f4fd" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="230" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Core Data Structures</text>
+    
+    <!-- Queue -->
+    <rect x="100" y="150" width="120" height="60" fill="#3498db" rx="5"/>
+    <text x="160" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Queue</text>
+    <text x="160" y="185" text-anchor="middle" font-size="10" fill="white">URLs to visit</text>
+    <text x="160" y="195" text-anchor="middle" font-size="10" fill="white">FIFO + Mutex</text>
+    
+    <!-- CrawledSet -->
+    <rect x="240" y="150" width="120" height="60" fill="#e74c3c" rx="5"/>
+    <text x="300" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">CrawledSet</text>
+    <text x="300" y="185" text-anchor="middle" font-size="10" fill="white">Visited URLs</text>
+    <text x="300" y="195" text-anchor="middle" font-size="10" fill="white">Hash Set</text>
+    
+    <!-- Stats -->
+    <rect x="170" y="230" width="120" height="50" fill="#9b59b6" rx="5"/>
+    <text x="230" y="250" text-anchor="middle" font-size="12" font-weight="bold" fill="white">CrawlerStats</text>
+    <text x="230" y="265" text-anchor="middle" font-size="10" fill="white">Metrics &amp; Rate</text>
+  </g>
+  
+  <!-- HTTP Client Section -->
+  <g id="http-client">
+    <rect x="420" y="110" width="200" height="120" fill="#fff3cd" stroke="#f39c12" stroke-width="2" rx="5"/>
+    <text x="520" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">HTTP Client</text>
+    
+    <rect x="440" y="150" width="160" height="70" fill="#f39c12" rx="5"/>
+    <text x="520" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">fetchPage()</text>
+    <text x="520" y="185" text-anchor="middle" font-size="10" fill="white">10s timeout</text>
+    <text x="520" y="195" text-anchor="middle" font-size="10" fill="white">Goroutine-based</text>
+    <text x="520" y="205" text-anchor="middle" font-size="10" fill="white">Channel comm.</text>
+  </g>
+  
+  <!-- HTML Parser Section -->
+  <g id="html-parser">
+    <rect x="660" y="110" width="220" height="180" fill="#d4edda" stroke="#28a745" stroke-width="2" rx="5"/>
+    <text x="770" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">HTML Parser</text>
+    
+    <rect x="680" y="150" width="180" height="130" fill="#28a745" rx="5"/>
+    <text x="770" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">parseHTML()</text>
+    <text x="770" y="190" text-anchor="middle" font-size="10" fill="white">• Extract links (&lt;a href&gt;)</text>
+    <text x="770" y="205" text-anchor="middle" font-size="10" fill="white">• Extract title</text>
+    <text x="770" y="220" text-anchor="middle" font-size="10" fill="white">• Extract body content</text>
+    <text x="770" y="235" text-anchor="middle" font-size="10" fill="white">• Token limit: 500</text>
+    <text x="770" y="250" text-anchor="middle" font-size="10" fill="white">• Content limit: 500 chars</text>
+    <text x="770" y="265" text-anchor="middle" font-size="10" fill="white">• Skip scripts/styles</text>
+  </g>
+  
+  <!-- Database Section -->
+  <g id="database">
+    <rect x="920" y="110" width="200" height="120" fill="#f8d7da" stroke="#dc3545" stroke-width="2" rx="5"/>
+    <text x="1020" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Database Layer</text>
+    
+    <rect x="940" y="150" width="160" height="70" fill="#dc3545" rx="5"/>
+    <text x="1020" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">MongoDB</text>
+    <text x="1020" y="185" text-anchor="middle" font-size="10" fill="white">WebPage storage</text>
+    <text x="1020" y="195" text-anchor="middle" font-size="10" fill="white">URL, Title, Content</text>
+    <text x="1020" y="205" text-anchor="middle" font-size="10" fill="white">Limit: 1000 pages</text>
+  </g>
+  
+  <!-- Progress Display Section -->
+  <g id="progress-display">
+    <rect x="80" y="320" width="540" height="200" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="5"/>
+    <text x="350" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Progress Display System</text>
+    
+    <!-- Real-time UI -->
+    <rect x="100" y="360" width="160" height="80" fill="#0066cc" rx="5"/>
+    <text x="180" y="385" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Real-time UI</text>
+    <text x="180" y="400" text-anchor="middle" font-size="9" fill="white">Progress bar</text>
+    <text x="180" y="412" text-anchor="middle" font-size="9" fill="white">Statistics</text>
+    <text x="180" y="424" text-anchor="middle" font-size="9" fill="white">Current URL</text>
+    
+    <!-- Color System -->
+    <rect x="280" y="360" width="160" height="80" fill="#17a2b8" rx="5"/>
+    <text x="360" y="385" text-anchor="middle" font-size="11" font-weight="bold" fill="white">ANSI Colors</text>
+    <text x="360" y="400" text-anchor="middle" font-size="9" fill="white">Status indicators</text>
+    <text x="360" y="412" text-anchor="middle" font-size="9" fill="white">Console formatting</text>
+    <text x="360" y="424" text-anchor="middle" font-size="9" fill="white">Error highlighting</text>
+    
+    <!-- Activity Log -->
+    <rect x="460" y="360" width="140" height="80" fill="#6f42c1" rx="5"/>
+    <text x="530" y="385" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Activity Log</text>
+    <text x="530" y="400" text-anchor="middle" font-size="9" fill="white">Recent crawls</text>
+    <text x="530" y="412" text-anchor="middle" font-size="9" fill="white">Success/Failure</text>
+    <text x="530" y="424" text-anchor="middle" font-size="9" fill="white">Timestamps</text>
+    
+    <!-- Ticker Updates -->
+    <rect x="190" y="460" width="180" height="40" fill="#20c997" rx="5"/>
+    <text x="280" y="480" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Ticker (1s updates)</text>
+    <text x="280" y="492" text-anchor="middle" font-size="9" fill="white">Goroutine-based refresh</text>
+  </g>
+  
+  <!-- Control Flow Section -->
+  <g id="control-flow">
+    <rect x="660" y="320" width="460" height="200" fill="#fff8e1" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="890" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Control Flow &amp; Concurrency</text>
+    
+    <!-- Main Loop -->
+    <rect x="680" y="360" width="140" height="60" fill="#ff9800" rx="5"/>
+    <text x="750" y="380" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Main Loop</text>
+    <text x="750" y="395" text-anchor="middle" font-size="9" fill="white">Queue processing</text>
+    <text x="750" y="407" text-anchor="middle" font-size="9" fill="white">Max 5000 pages</text>
+    
+    <!-- Goroutines -->
+    <rect x="840" y="360" width="140" height="60" fill="#795548" rx="5"/>
+    <text x="910" y="380" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Goroutines</text>
+    <text x="910" y="395" text-anchor="middle" font-size="9" fill="white">Async fetching</text>
+    <text x="910" y="407" text-anchor="middle" font-size="9" fill="white">Progress updates</text>
+    
+    <!-- Channels -->
+    <rect x="1000" y="360" width="100" height="60" fill="#607d8b" rx="5"/>
+    <text x="1050" y="380" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Channels</text>
+    <text x="1050" y="395" text-anchor="middle" font-size="9" fill="white">HTTP response</text>
+    <text x="1050" y="407" text-anchor="middle" font-size="9" fill="white">Buffered (10)</text>
+    
+    <!-- Signal Handling -->
+    <rect x="760" y="440" width="160" height="60" fill="#e91e63" rx="5"/>
+    <text x="840" y="465" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Signal Handling</text>
+    <text x="840" y="480" text-anchor="middle" font-size="9" fill="white">Graceful shutdown</text>
+    <text x="840" y="492" text-anchor="middle" font-size="9" fill="white">Ctrl+C handling</text>
+  </g>
+  
+  <!-- Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495e"/>
+    </marker>
+  </defs>
+  
+  <!-- Queue to HTTP Client -->
+  <path d="M 380 180 L 420 180" stroke="#34495e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="400" y="175" text-anchor="middle" font-size="10" fill="#34495e">dequeue</text>
+  
+  <!-- HTTP Client to Parser -->
+  <path d="M 620 180 L 660 180" stroke="#34495e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="640" y="175" text-anchor="middle" font-size="10" fill="#34495e">content</text>
+  
+  <!-- Parser to Database -->
+  <path d="M 880 180 L 920 180" stroke="#34495e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="900" y="175" text-anchor="middle" font-size="10" fill="#34495e">store</text>
+  
+  <!-- Parser back to Queue (new URLs) -->
+  <path d="M 680 240 Q 400 280 220 240" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="450" y="270" text-anchor="middle" font-size="10" fill="#28a745">new URLs</text>
+  
+  <!-- Parser to CrawledSet -->
+  <path d="M 680 200 Q 500 250 360 200" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="520" y="235" text-anchor="middle" font-size="10" fill="#e74c3c">mark visited</text>
+  
+  <!-- Stats updates -->
+  <path d="M 770 290 Q 500 310 230 280" stroke="#9b59b6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="500" y="305" text-anchor="middle" font-size="10" fill="#9b59b6">update stats</text>
+  
+  <!-- Stats to Progress Display -->
+  <path d="M 230 320 L 350 320" stroke="#0066cc" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="290" y="315" text-anchor="middle" font-size="10" fill="#0066cc">display</text>
+  
+  <!-- Configuration Box -->
+  <rect x="80" y="560" width="1040" height="120" fill="#f1f3f4" stroke="#5f6368" stroke-width="1" rx="5"/>
+  <text x="600" y="585" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">Configuration &amp; Limits</text>
+  
+  <g font-size="12" fill="#2c3e50">
+    <text x="100" y="610">• Max Pages: 5000</text>
+    <text x="100" y="630">• HTTP Timeout: 10s</text>
+    <text x="100" y="650">• Token Limit: 500 per page</text>
+    <text x="100" y="670">• Content Limit: 500 chars</text>
+    
+    <text x="400" y="610">• Channel Buffer: 10</text>
+    <text x="400" y="630">• Progress Update: 1s</text>
+    <text x="400" y="650">• Database Limit: 1000 pages</text>
+    <text x="400" y="670">• Crawl Delay: 100ms</text>
+    
+    <text x="700" y="610">• Default Seed: google.com</text>
+    <text x="700" y="630">• Log Entries: 10 recent</text>
+    <text x="700" y="650">• Thread-safe: Mutexes</text>
+    <text x="700" y="670">• Graceful Shutdown: Signal handling</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="80" y="700" width="1040" height="30" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="3"/>
+    <text x="90" y="720" font-size="12" font-weight="bold" fill="#2c3e50">Data Flow:</text>
+    <line x1="180" y1="715" x2="200" y2="715" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="210" y="720" font-size="11" fill="#34495e">Main Process</text>
+    <line x1="320" y1="715" x2="340" y2="715" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="350" y="720" font-size="11" fill="#28a745">URL Discovery</text>
+    <line x1="460" y1="715" x2="480" y2="715" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="490" y="720" font-size="11" fill="#e74c3c">Visited Tracking</text>
+    <line x1="610" y1="715" x2="630" y2="715" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="640" y="720" font-size="11" fill="#9b59b6">Statistics</text>
+    <line x1="730" y1="715" x2="750" y2="715" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="760" y="720" font-size="11" fill="#0066cc">UI Updates</text>
+  </g>
+</svg>
